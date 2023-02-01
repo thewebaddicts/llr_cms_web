@@ -1,0 +1,38 @@
+
+<div class="button-add">
+    <div class="add"><a href="/<%= entity %>"> Add New Record </a></div>
+</div>
+<table>
+    <thead>
+    <tr class="header">
+        <% columns.forEach(function(column){ %>
+            <th class=<%= column.class %>><%= column.label %></th>
+
+        <% }); %>
+<th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% rows.forEach(function(row) { %>
+        <tr>
+            <% columns.forEach(function(column){ %>
+                <td class=<%= column.class %>><%= row[column.name] %></td>
+            <% }); %>
+
+            <td class="actions"  >
+            <a class="button-edit" href="/<%= entity %>/<%= row.id %>"> Edit </a>
+        
+            <a class="button-delete" href="/delete/<%= entity %>/<%= row.id %>"> Delete </a>
+
+            </td>
+
+        </tr>
+    <% }); %>
+
+    </tbody>
+
+</table>
+
+
+
+

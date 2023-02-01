@@ -1,0 +1,36 @@
+<form method="POST">
+    <div class="inputs">
+        <%-  generateFields(fields ,null , false) %>
+    </div>
+    <input class="sub" type="submit" value="Submit"/>
+</form>
+
+<script>
+
+function addRow(elem){
+    event.preventDefault();
+    
+    //go to parent & select jsonbuilder-form
+    var form = elem.parentElement.parentElement.querySelector(".jsonbuilder-form");
+    //get new row from hidden div
+    var last_element = elem.parentElement.querySelector('.hidden .jsonbuilder-row');
+    //clone element
+    const clone = last_element.cloneNode(true);
+    //append to the end
+    form.append(clone);
+}
+
+function deleteRow(elem){
+    event.preventDefault();
+
+    elem.parentElement.parentElement.remove();
+}
+
+</script>
+
+
+
+
+
+
+

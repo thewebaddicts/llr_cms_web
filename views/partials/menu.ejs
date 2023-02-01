@@ -1,0 +1,7 @@
+<ul class="menu-main">
+        <a href="/home">Home</a>
+        <a href="/logout">Logout</a>
+        <% for(const menu_item of menu) { %>
+                <li><a href="/<%= menu_item.entity %>/list"><%= menu_item.label %></a></li>
+        <% } %>
+</ul>
