@@ -339,7 +339,11 @@ app.get('/logout', function(req, res) {
       });
       res.redirect('/');
   });
-
+  app.get('/home/1', function(req, res) {
+  
+      console.log('im here');
+      res.redirect('/');
+  });
 app.get('/protected', (req, res) => {
     if (req.isAuthenticated()) {
       res.render('protected', { user: req.user });
