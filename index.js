@@ -71,26 +71,26 @@ const authenticate = (req, res, next) => {
     }
     res.redirect('/');
   };
-// const firebaseConfig = {
-//     apiKey: "AIzaSyBkfTUp0m3NMJLj5dgiL_4SrwPEW8P3ZWI",
-//     authDomain: "testing-68b3a.firebaseapp.com",
-//     projectId: "testing-68b3a",
-//     storageBucket: "testing-68b3a.appspot.com",
-//     messagingSenderId: "231829222443",
-//     appId: "1:231829222443:web:b543a8e6e6e46b93c7e66e",
-//     measurementId: "G-54M3PKZEF2"
-// };
-
 const firebaseConfig = {
-    apiKey: "AIzaSyBv_PKu22pRe0HvbGiLdzVmNr5xj6l6vds",
-    authDomain: "live-love-recycle--dev.firebaseapp.com",
-    databaseURL: "https://live-love-recycle--dev-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "live-love-recycle--dev",
-    storageBucket: "live-love-recycle--dev.appspot.com",
-    messagingSenderId: "14517500091",
-    appId: "1:14517500091:web:9ab29e46f219046ffb119e",
-    measurementId: "G-46PKKWSH14"
-  };
+    apiKey: "AIzaSyBkfTUp0m3NMJLj5dgiL_4SrwPEW8P3ZWI",
+    authDomain: "testing-68b3a.firebaseapp.com",
+    projectId: "testing-68b3a",
+    storageBucket: "testing-68b3a.appspot.com",
+    messagingSenderId: "231829222443",
+    appId: "1:231829222443:web:b543a8e6e6e46b93c7e66e",
+    measurementId: "G-54M3PKZEF2"
+};
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBv_PKu22pRe0HvbGiLdzVmNr5xj6l6vds",
+//     authDomain: "live-love-recycle--dev.firebaseapp.com",
+//     databaseURL: "https://live-love-recycle--dev-default-rtdb.europe-west1.firebasedatabase.app",
+//     projectId: "live-love-recycle--dev",
+//     storageBucket: "live-love-recycle--dev.appspot.com",
+//     messagingSenderId: "14517500091",
+//     appId: "1:14517500091:web:9ab29e46f219046ffb119e",
+//     measurementId: "G-46PKKWSH14"
+//   };
 const app_dataBase = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app_dataBase);
 app.set('view engine', 'ejs');
