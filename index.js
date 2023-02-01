@@ -326,7 +326,7 @@ app.get('/home',authenticate,  async (req, res) => {
 });
 //login post
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/home/1',
     failureRedirect: '/login',
     failureFlash: true
   }));
