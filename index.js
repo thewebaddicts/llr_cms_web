@@ -326,7 +326,7 @@ app.get('/home',authenticate,  async (req, res) => {
 });
 //login post
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/home',
+    successRedirect: '/home/1',
     failureRedirect: '/login',
     failureFlash: true
   }));
@@ -339,7 +339,9 @@ app.get('/logout', function(req, res) {
       });
       res.redirect('/');
   });
-
+  app.get('/home/1', function(req, res) {
+    res.render('testing', {title:'testing', layout: 'layouts/sidebar'});
+  });
 app.get('/protected', (req, res) => {
     if (req.isAuthenticated()) {
       res.render('protected', { user: req.user });
