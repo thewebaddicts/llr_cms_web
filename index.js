@@ -319,14 +319,14 @@ app.get('/home',authenticate,  async (req, res) => {
     const entity = req.params.entity;
     const firestore = firebase.firestore();
     
-    var menu = [];
-    menu = await getMenu(firestore);
+    // var menu = [];
+    // menu = await getMenu(firestore);
 
-    res.render('home', {title:'ENTITY LISTS',menu,entity : entity , user: req.user,username:username});
+    res.render('home', {title:'ENTITY LISTS',entity : entity , user: req.user,username:username});
 });
 //login post
 app.post('/login', passport.authenticate('local', {
-    successRedirect: '/home/1',
+    successRedirect: '/home',
     failureRedirect: '/login',
     failureFlash: true
   }));
@@ -339,9 +339,7 @@ app.get('/logout', function(req, res) {
       });
       res.redirect('/');
   });
-  app.get('/home/1', function(req, res) {
-    res.render('testing', {title:'testing', layout: 'layouts/sidebar'});
-  });
+ 
 app.get('/protected', (req, res) => {
     if (req.isAuthenticated()) {
       res.render('protected', { user: req.user });
@@ -354,8 +352,7 @@ app.get('/:entity/list',authenticate,async  (req, res) => {
     const entity = req.params.entity;
     const firestore = firebase.firestore();
     // const collections = await firestore.listCollections();
-    var menu = [];
-    menu = await getMenu(firestore);
+ 
 
     if (entity_fields[entity] === undefined) {
         res.status(404).send('Not found');
@@ -372,7 +369,7 @@ app.get('/:entity/list',authenticate,async  (req, res) => {
             );
             const columns = entity_fields[entity];
 
-            res.render('render', {title:'ENTITY LISTS', rows: rows, columns: columns , entity : entity,menu });
+            res.render('render', {title:'ENTITY LISTS', rows: rows, columns: columns , entity : entity });
         })
         .catch(error => {
             res.status(500).send(error);
@@ -384,12 +381,12 @@ app.get('/:entity', authenticate,async (req, res) => {
    
     const entity = req.params.entity;
     const firestore = firebase.firestore();
-    var menu = [];
-    menu = await getMenu(firestore);
+    // var menu = [];
+    // menu = await getMenu(firestore);
     if (entity_fields[entity] === undefined) {
         res.status(404).send('Not found');
     }
-    res.render('create', {title:'ENTITY CREATE',fields: entity_fields[entity],menu, generateFields });
+    res.render('create', {title:'ENTITY CREATE',fields: entity_fields[entity], generateFields });
 });
 
 //ADD NEW DATA IN SPECIFIC ENTITY
@@ -467,8 +464,8 @@ app.get('/delete/:entity/:id',authenticate, async (req, res) => {
 app.get('/:entity/:id',authenticate, async (req, res) => {
     const entity = req.params.entity;
     const firestore = firebase.firestore();
-    var menu = [];
-    menu = await getMenu(firestore);
+    // var menu = [];
+    // menu = await getMenu(firestore);
     const id = req.params.id;
     if (entity_fields[entity] === undefined) {
         res.status(404).send('Not found');
@@ -481,7 +478,7 @@ app.get('/:entity/:id',authenticate, async (req, res) => {
         // if (row.values.hasOwnProperty(0)) {
             // console.log('tony');
         // }
-        res.render('update', {title:'ENTITY UPDATE',rows:rows,row:row, fields: entity_fields[entity],menu , generateFields : generateFields});
+        res.render('update', {title:'ENTITY UPDATE',rows:rows,row:row, fields: entity_fields[entity] , generateFields : generateFields});
     } catch (error) {
         res.status(404).send('Not found');
     }
