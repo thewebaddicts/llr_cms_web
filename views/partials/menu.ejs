@@ -1,7 +1,21 @@
 <ul class="menu-main">
         <a href="/home">Home</a>
         <a href="/logout">Logout</a>
-        <% for(const menu_item of menu) { %>
-                <li><a href="/<%= menu_item.entity %>/list"><%= menu_item.label %></a></li>
-        <% } %>
+        <ul>
+              <a href="/dev_users/list"><li>Users</li></a>
+              <a href="/dev_addressesToShowInApp/list"><li>App Addreses</li></a>
+              <a href="/price/list"><li>Prices</li></a>
+              <a href="/dev_categories/list"><li>Categories</li></a>
+              <a href="/dev_parentCategories/list"><li>Parent Categories</li></a>
+              <a href="/dev_paragraphs/lists"><li>Paragraphs</li></a>
+              <a href="/dev_addresses/list"><li>Addresses</li></a>
+              <a href="/dev_bigContainersOfWarehouse/list"><li>Big Containers Warehouses</li></a>
+              <a href="/dev_donationsAmmountsAndCurrency/list"><li>Donations</li></a>
+              <a href="/dev_drivers/list"><li>Drivers</li></a>
+              <a href="/dev_driverOrders/list"><li>Drivers Orders</li></a>
+              <a href="/dev_news/list"><li>News</li></a>
+              <a href="/dev_warehouseMangers/list"><li>Warehouse Managers</li></a>
+              <a href="/dev_warehouses/list"><li>Warehouses</li></a>
+             
+        </ul>
 </ul>

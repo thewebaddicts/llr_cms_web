@@ -358,6 +358,9 @@ ul, li {
 li:hover {
     color: #2BB064;
 }
+ul{
+    padding-left: unset;
+}
 
 
 ul, li, a {
@@ -365,6 +368,7 @@ ul, li, a {
 }
 li{
     width: 100%;
+    padding:10px;
     font-size: 14px;
 }
 
