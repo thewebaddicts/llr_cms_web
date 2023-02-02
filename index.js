@@ -348,7 +348,7 @@ app.get('/protected', (req, res) => {
     }
   });
 //VIEW DATA IN SPECIFIC ENTITY
-app.get('/:entity/list',authenticate,async  (req, res) => {
+app.get('/:entity/list',authenticate,  (req, res) => {
     const entity = req.params.entity;
     const firestore = firebase.firestore();
     // const collections = await firestore.listCollections();
