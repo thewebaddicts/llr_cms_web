@@ -6,17 +6,23 @@ const firebase = require("firebase-admin");
 const app = exp();
 const expressLayouts = require('express-ejs-layouts')
 app.use(expressLayouts)
-app.set('layout', './layouts/full-width')
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 app.use(session({ secret: 'secret-key', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+const path =require('path');
+app.set('layout', path.join(__dirname, './views/layouts/full-width'));
 var flash = require('connect-flash');
 app.use(flash());
+const cors = require('cors');
+app.use(cors());
 
 app.use(exp.static(__dirname + '/public'));
+app.set('views', path.join(__dirname, './views'));
+app.use(exp.static(__dirname + './views'));
 const users = [
     { id: 'Tony Katrib', email: 'tony.katrib@thewebaddicts.com', password: 'tonytony' },
     { id: 'The Web Addcits', email: 'admin@thewebaddicts.com', password: 'thewebaddicts123!@#' }
